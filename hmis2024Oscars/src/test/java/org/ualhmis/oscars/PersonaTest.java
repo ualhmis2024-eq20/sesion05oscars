@@ -17,6 +17,8 @@ class PersonaTest {
 		Persona nula1 = new Persona("Pedro", null, null);
 		Persona nula2 = new Persona(null, "h", null);
 		Persona nula3 = new Persona(null, null, "10/12/1985");
+		Persona nula4 = new Persona("Pepe", null, "01/01/2000");
+		Persona nula5 = new Persona("Pepe", null, "01/01/2000");
 		Director d1 = new Director ("Dire", "m", "01/01/2000");
 		Pelicula peli1 = new Pelicula("Maven mola !!!", d1);
 
@@ -35,6 +37,7 @@ class PersonaTest {
 		assertNotEquals(p1, nula1);
 		assertNotEquals(p1, nula2);
 		assertNotEquals(p1, nula3);
+        assertEquals(nula4, nula5);
 		assertNotEquals(nula0, nula1);
 		assertNotEquals(nula0, nula2);
 		assertNotEquals(nula0, nula3);
@@ -54,7 +57,13 @@ class PersonaTest {
 	void testHashCode() {
 		Persona p1 = new Persona ("Pedro", "m", "02/02/1999");
 		Persona p2 = new Persona ("Pedro", "m", "02/02/1999");
+		Persona nula1 = new Persona("Pedro", null, null);
+		Persona nula2 = new Persona(null, "h", null);
+		Persona nula3 = new Persona(null, null, "10/12/1985");
 
 		assertEquals(p1.hashCode(), p2.hashCode());
+		assertNotEquals(p1.hashCode(), nula1.hashCode());
+		assertNotEquals(p1.hashCode(), nula2.hashCode());
+		assertNotEquals(p1.hashCode(), nula3.hashCode());
 	}
 }
